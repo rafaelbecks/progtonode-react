@@ -5,7 +5,27 @@ const HomeContainer = styled.div`
     margin: 0;
     padding: 0;
     color: #fff;
+    padding: 30px;
     height: 100vh;
 `;
 
-export { HomeContainer };
+const Container = styled.div`
+    display:flex;
+`;
+
+const SearchContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const SearchBar = styled.div`
+    display: flex;
+`;
+
+const GraphViewContainer = styled.div`
+    display: flex;
+`;
+
+export {
+  HomeContainer, Container, GraphViewContainer, SearchContainer, SearchBar,
+};
