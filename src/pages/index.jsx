@@ -8,6 +8,7 @@ import HomeView from '../components/templates/home';
 const Home = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [graphData, setGraphData] = useState(false);
+  const [artistData, setArtistData] = useState({});
 
   const graphqlClient = new ApolloClient({
     uri: process.env.REACT_APP_GRAPHQL_API,
@@ -27,8 +28,7 @@ const Home = () => {
       query: GET_GRAPH_DATA(id),
     });
 
-    console.log(data);
-
+    setArtistData(data.graphConstruct.artist);
     setGraphData(data.graphConstruct.graph);
   };
 
@@ -38,6 +38,7 @@ const Home = () => {
       getGraphData={getGraphData}
       graphData={graphData}
       searchResult={searchResult}
+      artistData={artistData}
     />
   );
 };

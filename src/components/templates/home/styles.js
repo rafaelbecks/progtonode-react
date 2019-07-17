@@ -13,19 +13,10 @@ const Container = styled.div`
     display:flex;
 `;
 
-const SearchContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-const SearchBar = styled.div`
-    display: flex;
-`;
-
 const GraphViewContainer = styled.div`
     display: flex;
 `;
 
 export {
-  HomeContainer, Container, GraphViewContainer, SearchContainer, SearchBar,
+  HomeContainer, Container, GraphViewContainer,
 };

@@ -13,7 +13,7 @@ const GET_GRAPH_DATA = id => gql`
     query {
     graphConstruct(artistId:"${id}", level: 2){ 
         artist { 
-        id, name 
+        id, name, images
         }, 
         graph { 
         nodes {
