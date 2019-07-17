@@ -1,7 +1,7 @@
 const graphMockup = {
   nodes: [
     {
-      id: '79827',
+      id: 'c',
       label: 'John Frusciante',
       active: null,
       group: 0,

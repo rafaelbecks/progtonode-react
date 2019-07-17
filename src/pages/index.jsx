@@ -9,6 +9,15 @@ const Home = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [graphData, setGraphData] = useState(false);
   const [artistData, setArtistData] = useState({});
+  const [graphViewConfig, setGraphViewConfig] = useState({
+    linkWidth: 0.5,
+    linkDirectionParticles: 4,
+    linkOpacity: 0.5,
+    linkColor: '#fff',
+    graphLevel: 2,
+    showAlwaysLabel: false,
+    labelSize: 5,
+  });
 
   const graphqlClient = new ApolloClient({
     uri: process.env.REACT_APP_GRAPHQL_API,
@@ -17,7 +26,7 @@ const Home = () => {
 
   const search = async (query) => {
     const { data } = await graphqlClient.query({
-      query: SEARCH_ARTIST(query),
+      query: SEARCH_ARTIST(query, graphViewConfig.graphLevel),
     });
 
     const { results } = data.artistSearch;
@@ -39,6 +48,8 @@ const Home = () => {
       search={search}
       getGraphData={getGraphData}
       graphData={graphData}
+      config={graphViewConfig}
+      updateConfig={setGraphViewConfig}
       searchResult={searchResult}
       artistData={artistData}
     />

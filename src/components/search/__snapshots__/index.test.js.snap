@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component test with Enzyme renders and match snapshot 1`] = `
+<div
+  className="sc-bdVaJa jFNXxd"
+>
+  <label>
+    Busca un artista
+  </label>
+  <div
+    className="sc-bwzfXH byFnul"
+  >
+    <input
+      name="query"
+      type="text"
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Buscar
+    </button>
+  </div>
+  <p>
+    Resultados
+  </p>
+  <ul>
+    <li
+      onClick={[Function]}
+    >
+      <img
+        alt="John Frusciante"
+        src="https://img.discogs.com/Mmuzj0--YFOH7CmFJUPX5Bn3UH0=/150x150/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-79827-1512814987-9404.jpeg.jpg"
+      />
+      John Frusciante
+    </li>
+    <li
+      onClick={[Function]}
+    >
+      <img
+        alt="Gail Frusciante And Friends"
+        src="https://img.discogs.com/lFkRroItQazYPc_lhkGoGqL0biQ=/150x150/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-758717-1558659509-2617.png.jpg"
+      />
+      Gail Frusciante And Friends
+    </li>
+    <li
+      onClick={[Function]}
+    >
+      <img
+        alt="Gail Frusciante"
+        src=""
+      />
+      Gail Frusciante
+    </li>
+    <li
+      onClick={[Function]}
+    >
+      <img
+        alt="Joseph Frusciante"
+        src="https://img.discogs.com/s0ajcpWDndjhnRDGJqt-otu6MWk=/150x150/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-716683-1376487230-5662.png.jpg"
+      />
+      Joseph Frusciante
+    </li>
+  </ul>
+</div>
+`;

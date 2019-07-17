@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ForceGraph3D } from 'react-force-graph';
 import SpriteText from 'three-spritetext';
 import { GraphViewContainer } from './styles';
 
-const GraphViewer = ({ graphData }) => {
+const GraphViewer = ({ graphData, config }) => {
   const fg = React.createRef();
-
+  console.log('config', config);
   const handleClick = (node) => {
     const distance = 40;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -15,25 +15,30 @@ const GraphViewer = ({ graphData }) => {
       3000,
     );
   };
+
   return (
     <GraphViewContainer>
       {graphData && (
         <ForceGraph3D
           ref={fg}
+          width={800}
           graphData={graphData}
           nodeLabel="label"
           nodeAutoColorBy="id"
-          linkWidth={0.5}
+          linkWidth={config.linkWidth}
           onNodeHover={() => ''}
-          linkDirectionalParticles={4}
-          linkOpacity={1}
-          linkColor="#fff"
+          linkDirectionalParticles={config.linkDirectionParticles}
+          linkOpacity={config.linkO}
+          linkColor={config.linkColor}
           onNodeClick={(ref) => { handleClick(ref); }}
           nodeThreeObjectExtend
-          nodeThreeObject={(node) => {    
-            const sprite = new SpriteText(node.label);
-            sprite.color = node.color;
-            sprite.textHeight = 5;
+          nodeThreeObject={(node) => {
+            if (config.showAlwaysLabel) {
+              const sprite = new SpriteText(node.label);
+              sprite.color = node.color;
+              sprite.textHeight = 5;
+              return sprite;
+            }
           }}
         />
       )}

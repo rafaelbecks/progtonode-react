@@ -4,7 +4,7 @@ import { gql } from 'apollo-boost';
 const SEARCH_ARTIST = query => gql`
     query {
         artistSearch(query: "${query}", perPage:10,  type:"artist") {
-        results { id, title, type}
+        results { id, title, type, thumb }
     }
 }
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Search from './index';
 import resultsMockup from './resultsMockup';
 
@@ -10,6 +11,13 @@ describe('Search component test with Enzyme', () => {
 
   it('renders without crashing with search data array', () => {
     shallow(<Search searchResult={resultsMockup} />);
+  });
+
+  it('renders and match snapshot', () => {
+    const list = renderer
+      .create(<Search searchResult={resultsMockup} />)
+      .toJSON();
+    expect(list).toMatchSnapshot();
   });
 
   it('render list correctly', () => {

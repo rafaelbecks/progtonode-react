@@ -25,12 +25,12 @@ const Search = ({ search, searchResult = [], getGraphData }) => {
       <ul>
         {searchResult.map(({ title, id, thumb }) => (
           <li
-          key={title}
+            key={title}
             onClick={() => {
               getGraphData(id, 1);
             }}
           >
-            <img src={thumb} alt={title} />
+            <img src={thumb} style={{ width: '30px' }} alt={title} />
             {title}
           </li>
         ))}
@@ -39,7 +39,6 @@ const Search = ({ search, searchResult = [], getGraphData }) => {
     </SearchContainer>
   );
 };
-
 
 
 export default Search;
