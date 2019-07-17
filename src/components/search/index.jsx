@@ -3,7 +3,7 @@
 import React from 'react';
 import { SearchContainer, SearchBar } from './styles';
 
-const Search = ({ search, searchResult, getGraphData }) => {
+const Search = ({ search, searchResult = [], getGraphData }) => {
   const input = React.createRef();
 
   return (
@@ -23,13 +23,14 @@ const Search = ({ search, searchResult, getGraphData }) => {
 
       <p>Resultados</p>
       <ul>
-        {searchResult.map(({ title, id, images }) => (
+        {searchResult.map(({ title, id, thumb }) => (
           <li
-            key={title}
+          key={title}
             onClick={() => {
               getGraphData(id, 1);
             }}
           >
+            <img src={thumb} alt={title} />
             {title}
           </li>
         ))}
@@ -38,5 +39,7 @@ const Search = ({ search, searchResult, getGraphData }) => {
     </SearchContainer>
   );
 };
+
+
 
 export default Search;

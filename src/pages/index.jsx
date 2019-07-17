@@ -20,7 +20,9 @@ const Home = () => {
       query: SEARCH_ARTIST(query),
     });
 
-    setSearchResult(data.artistSearch.results);
+    const { results } = data.artistSearch;
+    setSearchResult(results);
+    return results;
   };
 
   const getGraphData = async (id) => {
