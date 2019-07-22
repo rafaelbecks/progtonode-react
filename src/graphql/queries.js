@@ -9,9 +9,9 @@ const SEARCH_ARTIST = query => gql`
 }
 `;
 
-const GET_GRAPH_DATA = id => gql`
+const GET_GRAPH_DATA = (id, level = 2) => gql`
     query {
-    graphConstruct(artistId:"${id}", level: 2){ 
+    graphConstruct(artistId:"${id}", level: ${level}){ 
         artist { 
         id, name, images
         }, 

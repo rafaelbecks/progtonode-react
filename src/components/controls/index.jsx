@@ -6,7 +6,6 @@ import DatGui, {
 
 const GraphControls = ({ config, updateConfig }) => (
   <DatGui data={config} onUpdate={(data) => { updateConfig(data); }}>
-    <DatFolder 
     <DatNumber path="graphLevel" label="Graph Level" min={1} max={3} step={1} />
     <DatNumber path="linkWidth" label="Link Width" min={0} max={5} step={0.5} />
     <DatNumber path="linkOpacity" label="Link Opacity" min={0} max={1} step={0.1} />

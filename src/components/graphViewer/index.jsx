@@ -20,7 +20,7 @@ const GraphViewer = ({ graphData, config }) => {
       {graphData && (
         <ForceGraph3D
           ref={fg}
-          width={window.innerWidth - 350}
+          width={window.innerWidth - 410}
           graphData={graphData}
           nodeLabel="label"
           nodeAutoColorBy="id"

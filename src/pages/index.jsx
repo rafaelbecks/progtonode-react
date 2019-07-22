@@ -26,7 +26,7 @@ const Home = () => {
 
   const search = async (query) => {
     const { data } = await graphqlClient.query({
-      query: SEARCH_ARTIST(query, graphViewConfig.graphLevel),
+      query: SEARCH_ARTIST(query),
     });
 
     const { results } = data.artistSearch;
@@ -36,7 +36,7 @@ const Home = () => {
 
   const getGraphData = async (id) => {
     const { data } = await graphqlClient.query({
-      query: GET_GRAPH_DATA(id),
+      query: GET_GRAPH_DATA(id, graphViewConfig.graphLevel),
     });
 
     setArtistData(data.graphConstruct.artist);

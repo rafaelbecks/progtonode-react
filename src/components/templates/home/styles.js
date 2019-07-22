@@ -11,7 +11,7 @@ const HomeContainer = styled.div`
 
 const Container = styled.div`
     display:flex;
-    width: 100vw;
+    width: 100%;
 `;
 
 const GraphViewContainer = styled.div`
