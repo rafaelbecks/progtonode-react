@@ -4,7 +4,7 @@ import React from 'react';
 import Search from '../../search';
 import GraphViewer from '../../graphViewer';
 import GraphControls from '../../controls';
-import { HomeContainer, Container } from './styles';
+import { HomeContainer, Container, SideNav } from './styles';
 
 
 const Home = ({
@@ -16,13 +16,16 @@ const Home = ({
   updateConfig,
 }) => (
   <HomeContainer>
-    <h2>3D Graph Visualizer</h2>
     <Container>
-      <Search
-        search={search}
-        searchResult={searchResult}
-        getGraphData={getGraphData}
-      />
+      <SideNav>
+        <h2>3D Graph Visualizer</h2>
+        <Search
+          search={search}
+          searchResult={searchResult}
+          getGraphData={getGraphData}
+        />
+
+      </SideNav>
       <GraphViewer graphData={graphData} config={config} />
       <GraphControls config={config} updateConfig={updateConfig} />
     </Container>

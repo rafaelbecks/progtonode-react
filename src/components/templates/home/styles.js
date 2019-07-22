@@ -11,12 +11,20 @@ const HomeContainer = styled.div`
 
 const Container = styled.div`
     display:flex;
+    width: 100vw;
 `;
 
 const GraphViewContainer = styled.div`
     display: flex;
 `;
 
+const SideNav = styled.div`
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+`;
+
+
 export {
-  HomeContainer, Container, GraphViewContainer,
+  HomeContainer, Container, GraphViewContainer, SideNav,
 };

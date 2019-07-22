@@ -5,7 +5,6 @@ import { GraphViewContainer } from './styles';
 
 const GraphViewer = ({ graphData, config }) => {
   const fg = React.createRef();
-  console.log('config', config);
   const handleClick = (node) => {
     const distance = 40;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -21,14 +20,14 @@ const GraphViewer = ({ graphData, config }) => {
       {graphData && (
         <ForceGraph3D
           ref={fg}
-          width={800}
+          width={window.innerWidth - 350}
           graphData={graphData}
           nodeLabel="label"
           nodeAutoColorBy="id"
           linkWidth={config.linkWidth}
           onNodeHover={() => ''}
           linkDirectionalParticles={config.linkDirectionParticles}
-          linkOpacity={config.linkO}
+          linkOpacity={config.linkOpacity}
           linkColor={config.linkColor}
           onNodeClick={(ref) => { handleClick(ref); }}
           nodeThreeObjectExtend
