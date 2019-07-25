@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ApolloClient from 'apollo-boost';
 import {
-  SEARCH_ARTIST, GET_GRAPH_DATA,
+  SEARCH_ARTIST, GET_GRAPH_DATA, SEARCH_DISEASE, GET_DISEASE_GRAPH_DATA,
 } from '../graphql/queries';
 import HomeView from '../components/templates/home';
 
@@ -14,8 +14,11 @@ const Home = () => {
     linkDirectionParticles: 4,
     linkOpacity: 0.5,
     linkColor: '#fff',
-    graphLevel: 2,
+    graphLevel: 1,
     showAlwaysLabel: false,
+    linkResolution: 6,
+    linkCurvature: 0,
+    linkCurveRotation: 0,
     labelSize: 5,
   });
 
@@ -24,7 +27,7 @@ const Home = () => {
   });
 
 
-  const search = async (query) => {
+  const searchArtist = async (query) => {
     const { data } = await graphqlClient.query({
       query: SEARCH_ARTIST(query),
     });
@@ -33,6 +36,17 @@ const Home = () => {
     setSearchResult(results);
     return results;
   };
+
+  const searchDisease = async (query) => {
+    const { data } = await graphqlClient.query({
+      query: SEARCH_DISEASE(query),
+    });
+
+    const { results } = data.diseaseSearch;
+    setSearchResult(results);
+    return results;
+  };
+
 
   const getGraphData = async (id) => {
     const { data } = await graphqlClient.query({
@@ -43,9 +57,17 @@ const Home = () => {
     setGraphData(data.graphConstruct.graph);
   };
 
+  const getGraphDataDisease = async (id) => {
+    const { data } = await graphqlClient.query({
+      query: GET_DISEASE_GRAPH_DATA(id, graphViewConfig.graphLevel),
+    });
+
+    setGraphData(data.diseaseGraph.graph);
+  };
+
   return (
     <HomeView
-      search={search}
+      search={searchArtist}
       getGraphData={getGraphData}
       graphData={graphData}
       config={graphViewConfig}

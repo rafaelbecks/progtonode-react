@@ -24,6 +24,9 @@ const GraphViewer = ({ graphData, config }) => {
           graphData={graphData}
           nodeLabel="label"
           nodeAutoColorBy="id"
+          linkResolution={config.linkResolution}
+          linkCurvature={config.linkCurvature}
+          linkCurveRotation={config.linkCurveRotation}
           linkWidth={config.linkWidth}
           onNodeHover={() => ''}
           linkDirectionalParticles={config.linkDirectionParticles}

@@ -9,6 +9,22 @@ const SEARCH_ARTIST = query => gql`
 }
 `;
 
+const SEARCH_DISEASE = query => gql`
+    query {
+        diseaseSearch(query: "${query}") {
+        results
+    }
+}
+`;
+
+const GET_DISEASE_GRAPH_DATA = (id, level = 1) => gql`
+    query {
+        diseaseGraph(name:"${id}", level: ${level}){ 
+            name, graph { nodes { id, label} , links { source, target } }
+        }
+    }
+`;
+
 const GET_GRAPH_DATA = (id, level = 2) => gql`
     query {
     graphConstruct(artistId:"${id}", level: ${level}){ 
@@ -31,5 +47,5 @@ const GET_GRAPH_DATA = (id, level = 2) => gql`
 `;
 
 export {
-  SEARCH_ARTIST, GET_GRAPH_DATA,
+  SEARCH_ARTIST, GET_GRAPH_DATA, SEARCH_DISEASE, GET_DISEASE_GRAPH_DATA,
 };

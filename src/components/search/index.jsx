@@ -23,15 +23,17 @@ const Search = ({ search, searchResult = [], getGraphData }) => {
 
       <p>Resultados</p>
       <ul>
-        {searchResult.map(({ title, id, thumb }) => (
+        {searchResult.map(({
+          title, name, id,
+        }) => (
           <li
-            key={title}
+            key={title || name}
             onClick={() => {
-              getGraphData(id, 1);
+              getGraphData(id || name, 1);
             }}
           >
-            <img src={thumb} style={{ width: '30px' }} alt={title} />
-            {title}
+            {/* <img src={thumb} style={{ width: '30px' }} alt={title} />  */}
+            {title || name}
           </li>
         ))}
       </ul>
