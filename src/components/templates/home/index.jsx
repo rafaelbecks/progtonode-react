@@ -4,31 +4,22 @@ import React from 'react';
 import Search from '../../search';
 import GraphViewer from '../../graphViewer';
 import GraphControls from '../../controls';
-import { HomeContainer, Container, SideNav } from './styles';
-
+import { HomeContainer } from './styles';
+import { Title, Subtitle, Paragraph } from '../../elements/typography';
+import SideNav from '../../sidenav';
 
 const Home = ({
-  search,
-  searchResult,
-  getGraphData,
-  graphData,
-  config,
-  updateConfig,
+  search, searchResult, getGraphData, graphData, config, updateConfig,
 }) => (
   <HomeContainer>
-    <Container>
-      <SideNav>
-        <h2>3D Graph Visualizer</h2>
-        <Search
-          search={search}
-          searchResult={searchResult}
-          getGraphData={getGraphData}
-        />
-
-      </SideNav>
-      <GraphViewer graphData={graphData} config={config} />
-      <GraphControls config={config} updateConfig={updateConfig} />
-    </Container>
+    <GraphViewer graphData={graphData} config={config} />
+    <SideNav>
+      <Title>3D Graph Visualizer</Title>
+      <Subtitle>Example subtitle</Subtitle>
+      <Paragraph>Example paragraph</Paragraph>
+      <Search search={search} searchResult={searchResult} getGraphData={getGraphData} />
+    </SideNav>
+    <GraphControls config={config} updateConfig={updateConfig} />
   </HomeContainer>
 );
 

@@ -44,46 +44,46 @@ const GraphViewer = ({ graphData, config }) => {
     <Fragment>
       <GraphViewContainer>
         {graphData && (
-        <ForceGraph3D
-          ref={(el) => {
-            fg = el;
-            console.log(el);
-          }}
-          width={window.innerWidth - 410}
-          graphData={graphData}
-          nodeLabel="label"
-          nodeAutoColorBy="id"
-          linkResolution={config.linkResolution}
-          linkCurvature={config.linkCurvature}
-          linkCurveRotation={config.linkCurveRotation}
-          linkWidth={config.linkWidth}
-          onNodeHover={() => ''}
-          linkDirectionalParticles={config.linkDirectionParticles}
-          linkOpacity={config.linkOpacity}
-          linkColor={config.linkColor}
-          onNodeClick={(ref) => { handleClick(ref); }}
-          nodeThreeObjectExtend
-          nodeThreeObject={(node) => {
-            if (config.showAlwaysLabel) {
-              const sprite = new SpriteText(node.label);
-              sprite.color = node.color;
-              sprite.textHeight = 5;
-              return sprite;
-            }
-          }}
-        />
+          <ForceGraph3D
+            ref={(el) => {
+              fg = el;
+              console.log(el);
+            }}
+            graphData={graphData}
+            nodeLabel="label"
+            nodeAutoColorBy="id"
+            linkResolution={config.linkResolution}
+            linkCurvature={config.linkCurvature}
+            linkCurveRotation={config.linkCurveRotation}
+            linkWidth={config.linkWidth}
+            onNodeHover={() => ''}
+            linkDirectionalParticles={config.linkDirectionParticles}
+            linkOpacity={config.linkOpacity}
+            linkColor={config.linkColor}
+            onNodeClick={(ref) => {
+              handleClick(ref);
+            }}
+            nodeThreeObjectExtend
+            nodeThreeObject={(node) => {
+              if (config.showAlwaysLabel) {
+                const sprite = new SpriteText(node.label);
+                sprite.color = node.color;
+                sprite.textHeight = 5;
+                return sprite;
+              }
+            }}
+          />
         )}
       </GraphViewContainer>
 
-      <button onClick={() => {
-        console.log(fg);
-        exportModel(fg);
-      }}
+      <button
+        onClick={() => {
+          console.log(fg);
+          exportModel(fg);
+        }}
       >
-Exportar
-
+        Exportar
       </button>
-
     </Fragment>
   );
 };

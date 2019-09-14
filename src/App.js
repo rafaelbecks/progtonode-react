@@ -1,10 +1,14 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+
 import './App.css';
 import Home from './pages';
 
 function App() {
   return (
-    <Home />
+    <ThemeProvider theme={{ mode: 'dark' }}>
+      <Home />
+    </ThemeProvider>
   );
 }
 
