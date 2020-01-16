@@ -1,7 +1,7 @@
 3d graph visualizer
 ================
 
-This is React version of the client of ProgToNode app, a web app which provides graph search for music with many degrees.
+This is the React version of a graph visualizer app, a web app which provides graph search for music with many degrees.
 
 ### Getting started
 
